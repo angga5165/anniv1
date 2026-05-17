@@ -64,8 +64,10 @@ body {
 .scene-content {
   position: absolute;
   left: 9vw;
-  top: 52vh;
-  transform: translateY(-50%);
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  height: fit-content;
   max-width: min(52vw, 620px);
   z-index: 10;
 }

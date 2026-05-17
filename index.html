@@ -132,14 +132,19 @@
 
         <div class="shrink-0 w-full md:w-1/2 relative h-[350px] md:h-[450px] max-w-[500px]">
           <!-- Scattered Polaroids -->
-          <div class="scattered-polaroid absolute top-4 left-0 md:left-4 w-32 md:w-40 bg-white p-2 pb-8 rounded-sm shadow-[0_15px_35px_rgba(0,0,0,0.5)] cursor-pointer z-10" data-msg="cantik banget ih">
+          <div class="scattered-polaroid hover-wobble-1 absolute top-6 left-2 md:left-8 w-44 md:w-56 bg-white p-2 pb-10 rounded-sm shadow-[0_15px_35px_rgba(0,0,0,0.4)] cursor-pointer z-10" style="transform: rotate(-6deg);" onclick="showCaption(this)">
             <img src="Foto 1.jfif" class="w-full aspect-square object-cover" />
+            <span class="polaroid-caption absolute bottom-3 left-0 w-full text-center text-xs md:text-sm font-medium text-[#D94F70] opacity-0 transition-opacity duration-300 pointer-events-none">cantik banget ih</span>
           </div>
-          <div class="scattered-polaroid absolute top-16 right-4 md:right-12 w-36 md:w-44 bg-white p-2 pb-8 rounded-sm shadow-[0_15px_35px_rgba(0,0,0,0.5)] cursor-pointer z-20" data-msg="ini gemes bgt 😠">
+          
+          <div class="scattered-polaroid hover-wobble-2 absolute top-12 right-2 md:right-8 w-48 md:w-60 bg-white p-2 pb-10 rounded-sm shadow-[0_15px_35px_rgba(0,0,0,0.4)] cursor-pointer z-20" style="transform: rotate(3deg);" onclick="showCaption(this)">
             <img src="Foto 1.jfif" class="w-full aspect-square object-cover" />
+            <span class="polaroid-caption absolute bottom-3 left-0 w-full text-center text-xs md:text-sm font-medium text-[#D94F70] opacity-0 transition-opacity duration-300 pointer-events-none">ini gemes bgt 😠</span>
           </div>
-          <div class="scattered-polaroid absolute bottom-4 left-1/4 md:left-[20%] w-36 md:w-48 bg-white p-2 pb-8 rounded-sm shadow-[0_15px_35px_rgba(0,0,0,0.5)] cursor-pointer z-30" data-msg="aku suka senyum kamu disini">
+          
+          <div class="scattered-polaroid hover-wobble-3 absolute bottom-0 left-1/4 md:left-[15%] w-48 md:w-64 bg-white p-2 pb-10 rounded-sm shadow-[0_15px_35px_rgba(0,0,0,0.5)] cursor-pointer z-30" style="transform: rotate(-2deg);" onclick="showCaption(this)">
             <img src="Foto 1.jfif" class="w-full aspect-square object-cover" />
+            <span class="polaroid-caption absolute bottom-3 left-0 w-full text-center text-xs md:text-sm font-medium text-[#D94F70] opacity-0 transition-opacity duration-300 pointer-events-none">aku suka senyum kamu disini</span>
           </div>
           
           <!-- Doodle Backgrounds -->
@@ -234,8 +239,7 @@
     <img id="lightbox-img" src="" class="max-w-[90vw] max-h-[85vh] object-contain rounded-md shadow-2xl scale-95 transition-transform duration-300" />
   </div>
 
-  <!-- Cute Popup for Scattered Polaroids -->
-  <div id="cute-popup" class="fixed bg-white text-[#D94F70] font-inter font-bold px-4 py-2 rounded-2xl shadow-[0_10px_25px_rgba(0,0,0,0.5)] text-sm z-[200] opacity-0 transition-all duration-300 pointer-events-none transform scale-75"></div>
+  <!-- Cute Popup for Scattered Polaroids (Removed) -->
 
   <!-- GSAP & ScrollTrigger -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>

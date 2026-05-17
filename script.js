@@ -181,31 +181,14 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // === SCATTERED POLAROID POPUP ===
-  const cutePopup = document.getElementById("cute-popup");
-  const scatteredPolaroids = document.querySelectorAll(".scattered-polaroid");
-  let popupTimeout;
-  
-  if (cutePopup && scatteredPolaroids.length > 0) {
-    scatteredPolaroids.forEach(p => {
-      p.addEventListener("click", (e) => {
-        clearTimeout(popupTimeout);
-        const msg = p.getAttribute("data-msg");
-        if (msg) {
-          cutePopup.innerText = msg;
-          // Posisikan popup dekat dengan kursor
-          cutePopup.style.left = e.clientX + "px";
-          cutePopup.style.top = (e.clientY - 50) + "px";
-          
-          cutePopup.classList.remove("opacity-0", "scale-75");
-          cutePopup.classList.add("opacity-100", "scale-100");
-          
-          popupTimeout = setTimeout(() => {
-            cutePopup.classList.remove("opacity-100", "scale-100");
-            cutePopup.classList.add("opacity-0", "scale-75");
-          }, 2000);
-        }
-      });
-    });
-  }
+  // === SCATTERED POLAROID CAPTION (In-Frame) ===
+  window.showCaption = function(el) {
+    const caption = el.querySelector(".polaroid-caption");
+    if (caption) {
+      caption.classList.remove("opacity-0");
+      setTimeout(() => {
+        caption.classList.add("opacity-0");
+      }, 2500);
+    }
+  };
 });

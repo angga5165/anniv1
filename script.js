@@ -41,20 +41,21 @@ document.addEventListener("DOMContentLoaded", () => {
         onLeaveBack: () => {
           gsap.set(bg, { scale: 1, y: 0, opacity: 1 });
           gsap.set(overlay, { opacity: 1 });
-          gsap.set([meta, heart, headline, caption], { x: 0, opacity: 1 });
+          gsap.set([meta, headline, caption].filter(Boolean), { x: 0, opacity: 1 });
           gsap.set(scrollHint, { opacity: 1 });
         }
       }
     });
 
     if (bg) scrollTl.fromTo(bg, { y: 0 }, { y: "-2vh", ease: "none" }, 0);
-    if (meta && heart && headline && caption) {
-      scrollTl.fromTo([meta, heart, headline, caption], { y: 0 }, { y: "-1vh", ease: "none" }, 0);
+    const animTargets = [meta, headline, caption].filter(Boolean);
+    if (animTargets.length) {
+      scrollTl.fromTo(animTargets, { y: 0 }, { y: "-1vh", ease: "none" }, 0);
     }
 
     const exitStart = 0.70;
-    if (meta && heart && headline && caption) {
-      scrollTl.fromTo([meta, heart, headline, caption], { x: 0, opacity: 1 }, { x: "-18vw", opacity: 0, ease: "power2.in" }, exitStart);
+    if (animTargets.length) {
+      scrollTl.fromTo(animTargets, { x: 0, opacity: 1 }, { x: "-18vw", opacity: 0, ease: "power2.in" }, exitStart);
     }
     if (scrollHint) scrollTl.fromTo(scrollHint, { opacity: 1 }, { opacity: 0, ease: "power2.in" }, exitStart);
     if (bg) scrollTl.fromTo(bg, { scale: 1, y: "-2vh" }, { scale: 1.08, y: "-6vh", ease: "none" }, exitStart);

@@ -191,4 +191,64 @@ document.addEventListener("DOMContentLoaded", () => {
       }, 2500);
     }
   };
+
+  // === INTERACTIVE ENVELOPE ===
+  const envelope = document.getElementById("love-letter-envelope");
+  const letterArea = document.getElementById("letter-content-area");
+  const letterSig = document.getElementById("letter-signature");
+  const letterAudio = document.getElementById("letter-audio");
+  
+  if (envelope && letterArea) {
+    const letterText = `haloo sayangg 🥺\n\nmakasih yaa udah bertahan sejauh ini sama aku.\naku tau aku belum jadi orang yang sempurna, kadang nyebelin, kadang bikin kamu kesel juga 😔\n\ntapi percaya yaa, aku selalu serius waktu sayang sama kamu.\n\nmakasih udah hadir dan bikin hari-hari aku jadi lebih rame, lebih hangat, dan lebih bahagia 💗\n\naku suka semua hal tentang kamu, bahkan hal-hal kecil yang mungkin kamu sendiri ga sadar.\n\nsemoga kita bisa terus bareng-bareng yaa,\nmasih ketawa receh, masih cerita random, masih saling usahain satu sama lain 🫶\n\nand for the last time…\n\nhappy 1st anniversary bububb 😠💞`;
+    
+    let isOpened = false;
+    
+    envelope.addEventListener("click", () => {
+      if (isOpened) return;
+      isOpened = true;
+      
+      // Open envelope CSS trigger
+      envelope.classList.add("is-open");
+      
+      // Play Audio (if exists)
+      if (letterAudio) {
+        letterAudio.volume = 0.4;
+        letterAudio.play().catch(e => console.log("Audio autoplay prevented"));
+      }
+      
+      // Confetti effect after flap opens
+      setTimeout(() => {
+        if (typeof confetti === "function") {
+          confetti({
+            particleCount: 80,
+            spread: 80,
+            origin: { y: 0.6 },
+            colors: ['#D94F70', '#F2C2D4', '#ffffff'],
+            disableForReducedMotion: true
+          });
+        }
+      }, 600);
+      
+      // Typing Animation after letter rises
+      setTimeout(() => {
+        let i = 0;
+        letterArea.innerHTML = "";
+        const typeWriter = setInterval(() => {
+          if (i < letterText.length) {
+            let char = letterText.charAt(i);
+            if (char === '\n') {
+              letterArea.innerHTML += "<br/>";
+            } else {
+              letterArea.innerHTML += char;
+            }
+            letterArea.scrollTop = letterArea.scrollHeight; // Auto-scroll
+            i++;
+          } else {
+            clearInterval(typeWriter);
+            if (letterSig) letterSig.classList.remove("opacity-0");
+          }
+        }, 50); // Kecepatan ngetik
+      }, 1200);
+    });
+  }
 });

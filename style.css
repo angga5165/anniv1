@@ -105,3 +105,21 @@ body {
   0%, 100% { opacity: 0.8; }
   50% { opacity: 1; }
 }
+
+/* Scattered Polaroids Hover Animation */
+.scattered-polaroid {
+  transition: all 0.3s ease;
+}
+
+@keyframes hoverWobble {
+  0% { transform: scale(1.1) rotate(-3deg); }
+  25% { transform: scale(1.1) rotate(3deg); }
+  50% { transform: scale(1.1) rotate(-3deg); }
+  75% { transform: scale(1.1) rotate(3deg); }
+  100% { transform: scale(1.1) rotate(-3deg); }
+}
+
+.scattered-polaroid:hover {
+  z-index: 50 !important;
+  animation: hoverWobble 0.6s ease-in-out infinite alternate;
+}

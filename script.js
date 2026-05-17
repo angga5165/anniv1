@@ -137,4 +137,47 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }, 500);
+
+  // === LIGHTBOX FUNCTIONALITY ===
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.getElementById("lightbox-img");
+  const lightboxClose = document.getElementById("lightbox-close");
+  const polaroids = document.querySelectorAll(".polaroid-trigger");
+
+  if (lightbox && lightboxImg && polaroids.length > 0) {
+    const openLightbox = (src) => {
+      lightboxImg.src = src;
+      lightbox.classList.remove("hidden");
+      lightbox.classList.add("flex");
+      // Memicu reflow agar transisi CSS berjalan mulus
+      void lightbox.offsetWidth;
+      lightbox.classList.remove("opacity-0");
+      lightboxImg.classList.remove("scale-95");
+      lightboxImg.classList.add("scale-100");
+    };
+
+    const closeLightbox = () => {
+      lightbox.classList.add("opacity-0");
+      lightboxImg.classList.remove("scale-100");
+      lightboxImg.classList.add("scale-95");
+      setTimeout(() => {
+        lightbox.classList.add("hidden");
+        lightbox.classList.remove("flex");
+      }, 300); // 300ms sesuai dengan duration-300 di Tailwind
+    };
+
+    polaroids.forEach(p => {
+      p.addEventListener("click", () => {
+        const img = p.querySelector("img");
+        if (img) openLightbox(img.src);
+      });
+    });
+
+    if (lightboxClose) {
+      lightboxClose.addEventListener("click", closeLightbox);
+    }
+    lightbox.addEventListener("click", (e) => {
+      if (e.target === lightbox) closeLightbox();
+    });
+  }
 });

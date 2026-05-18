@@ -353,4 +353,27 @@ document.addEventListener("DOMContentLoaded", () => {
       if (e.target === letterModal) closeLetterModal();
     });
   }
+
+  // === EXTRA ANIMATIONS FOR SCENE A ===
+  const sceneA = document.getElementById("scene-a");
+  if (sceneA) {
+    const sceneATexts = sceneA.querySelectorAll(".scene-content h2, .scene-content p, .scene-content .divider-line");
+    
+    // Fade Up Stagger for Texts
+    gsap.fromTo(sceneATexts, 
+      { y: 30, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 1.2,
+        stagger: 0.25,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: sceneA,
+          start: "top 60%",
+          toggleActions: "play none none reverse"
+        }
+      }
+    );
+  }
 });

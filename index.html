@@ -68,7 +68,8 @@
         </div>
       </div>
 
-      <!-- Additional Floating Text (Bottom Right) -->
+
+
       <div class="absolute z-10 text-right pr-6 md:pr-[9vw]" style="right: 0; bottom: 12vh; max-width: 400px;">
         <p class="font-heading text-white/95 text-shadow-hero italic text-lg md:text-2xl mb-3" style="color: #F2C2D4; white-space: nowrap;">
           "eh… ternyata udah 1 tahun yaa?"
@@ -89,29 +90,38 @@
 
     <!-- Scene A -->
     <div id="scene-a" class="scene-section" style="z-index: 20;">
-      <img src="Foto 2.jfif" alt="" class="scene-bg" />
+      <!-- Cinematic Background -->
+      <img src="Foto 2.jfif" alt="" class="scene-bg bg-cinematic" />
+      <div class="film-grain"></div>
+      
       <div class="scene-overlay">
         <div class="vignette-left absolute inset-0"></div>
         <div class="vignette-right absolute inset-0"></div>
         <div class="vignette-bottom absolute inset-0"></div>
       </div>
-      <div class="scene-content flex flex-col md:flex-row items-center justify-between gap-8" style="max-width: 80vw; width: 100%;">
-        <div class="flex-1">
+      <div class="scene-content flex flex-col md:flex-row items-center justify-center gap-8 md:gap-20" style="max-width: 85vw; width: 100%;">
+        <div class="shrink-0 w-full md:w-1/2 max-w-[480px] bg-black/20 backdrop-blur-[3px] p-5 md:p-8 rounded-2xl border border-white/5 shadow-2xl relative">
+          <!-- Glow blob di belakang teks -->
+          <div class="absolute inset-0 bg-[#D94F70]/5 rounded-2xl blur-xl -z-10"></div>
+          
           <h2 class="font-heading text-shadow-hero text-white" style="font-size: clamp(32px, 4vw, 48px); line-height: 1.1;">
-            aku masih inget banget<br/>ternyata kita…
+            aku masih inget banget...<br/>ternyata kita udah sejauh ini
           </h2>
-          <div class="divider-line mt-4"></div>
-          <p class="font-caption text-shadow-caption mt-4" style="font-size: clamp(12px, 1.2vw, 15px); max-width: 44ch; color: #F2C2D4;">
-            kita udah lewatin banyak hal yaa<br/>
-            dari yang ketawa receh<br/>
-            ngambek ga jelas<br/>
+          <div class="divider-line mt-4 !bg-[#F2C2D4]/60 shadow-[0_0_10px_rgba(242,194,212,0.4)] divider-pulse"></div>
+          <p class="font-caption text-shadow-caption mt-4 relative z-10" style="font-size: clamp(12px, 1.2vw, 15px); max-width: 44ch; color: #F2C2D4;">
+            banyak banget hal yang udah kita lewatin yaa<br/>
+            dari yang ketawa receh,<br/>
+            ngambek ga jelas,<br/>
             sampe “terserah” yang ternyata ga terserah 😔☝️
           </p>
         </div>
-        <div class="shrink-0 w-1/2 md:w-1/3 max-w-[280px]">
-          <video src="Video 1.mp4" autoplay loop muted playsinline class="w-full rounded-xl shadow-[0_12px_40px_rgba(0,0,0,0.45)] border border-white/10"></video>
+        
+        <div class="shrink-0 w-full md:w-1/2 max-w-[320px] animate-float">
+          <video src="Video 1.mp4" autoplay loop muted playsinline class="w-full rounded-md cinema-glow border border-[#F2C2D4]/30"></video>
         </div>
       </div>
+
+
       <div class="absolute left-[9vw] bottom-[6vh] z-10 text-xs tracking-[0.18em] uppercase text-white/50 font-inter font-medium">
         01 / 04
       </div>
@@ -292,7 +302,7 @@
 
     <!-- Scene D -->
     <div id="scene-d" class="scene-section" style="z-index: 50;">
-      <img src="scene_d_bg.jpg" alt="" class="scene-bg" />
+      <img src="Foto 3.webp" alt="" class="scene-bg" />
       <div class="scene-overlay">
         <div class="vignette-left absolute inset-0"></div>
         <div class="vignette-right absolute inset-0"></div>

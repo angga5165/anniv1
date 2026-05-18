@@ -211,13 +211,40 @@ document.addEventListener("DOMContentLoaded", () => {
     let typeWriterInterval = null;
     
     const openLetterModal = () => {
+      // Dapatkan posisi amplop untuk titik awal terbang
+      const rect = envelope.getBoundingClientRect();
+      const startX = rect.left + rect.width / 2 - window.innerWidth / 2;
+      const startY = rect.top - window.innerHeight / 2 + 50; // offset sedikit ke atas
+      
       letterModal.classList.remove("hidden");
       letterModal.classList.add("flex");
       void letterModal.offsetWidth; // reflow
       
       letterModal.classList.remove("opacity-0");
-      letterModalPaper.classList.remove("scale-95");
+      
+      // Pastikan kelas dasar tidak mengganggu GSAP
+      letterModalPaper.classList.remove("scale-95", "transition-transform", "duration-500");
       letterModalPaper.classList.add("scale-100");
+      
+      // Animasi Terbang (FLIP) dari amplop ke tengah layar
+      gsap.fromTo(letterModalPaper, 
+        {
+          x: startX,
+          y: startY,
+          scale: 0.15,
+          opacity: 0,
+          rotation: -10
+        },
+        {
+          x: 0,
+          y: 0,
+          scale: 1,
+          opacity: 1,
+          rotation: 0,
+          duration: 0.9,
+          ease: "back.out(1.2)"
+        }
+      );
       
       // Start typing animation
       let i = 0;
@@ -247,14 +274,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const closeLetterModal = () => {
       letterModal.classList.add("opacity-0");
-      letterModalPaper.classList.remove("scale-100");
-      letterModalPaper.classList.add("scale-95");
+      
+      // Animate back slightly
+      gsap.to(letterModalPaper, {
+        scale: 0.95,
+        opacity: 0,
+        duration: 0.4
+      });
+      
       setTimeout(() => {
         letterModal.classList.add("hidden");
         letterModal.classList.remove("flex");
         // Reset envelope state so it can be opened again
         envelope.classList.remove("is-open");
         isOpened = false;
+        
+        // Kembalikan kelas transisi standar
+        letterModalPaper.classList.add("transition-transform", "duration-500");
       }, 500);
     };
     
@@ -287,7 +323,7 @@ document.addEventListener("DOMContentLoaded", () => {
       // Show modal after envelope opens
       setTimeout(() => {
         openLetterModal();
-      }, 1000);
+      }, 900);
     });
     
     if (letterClose) {

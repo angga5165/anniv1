@@ -145,6 +145,18 @@ document.addEventListener("DOMContentLoaded", () => {
   const polaroids = document.querySelectorAll(".polaroid-trigger");
 
   if (lightbox && lightboxImg && polaroids.length > 0) {
+    const lightboxCaption = document.getElementById("lightbox-caption");
+    
+    // Caption Acak
+    const randomCaptions = [
+      "“ini abis aku bilang terserah”",
+      "“ini ngambek 3 jam gara-gara aku ketiduran 😭”",
+      "“galak tapi cantik 😔”",
+      "“lagi mode senggol bacok 💀”",
+      "“manyun mulu tapi gemes 😠”",
+      "“bete tapi tetep pesen gofood banyakan 🍕”"
+    ];
+
     const openLightbox = (src) => {
       lightboxImg.src = src;
       lightbox.classList.remove("hidden");
@@ -154,12 +166,26 @@ document.addEventListener("DOMContentLoaded", () => {
       lightbox.classList.remove("opacity-0");
       lightboxImg.classList.remove("scale-95");
       lightboxImg.classList.add("scale-100");
+      
+      // Random caption logic
+      if (lightboxCaption) {
+        const randomText = randomCaptions[Math.floor(Math.random() * randomCaptions.length)];
+        lightboxCaption.innerText = randomText;
+        lightboxCaption.classList.remove("scale-95", "opacity-0");
+        lightboxCaption.classList.add("scale-100", "opacity-100");
+      }
     };
 
     const closeLightbox = () => {
       lightbox.classList.add("opacity-0");
       lightboxImg.classList.remove("scale-100");
       lightboxImg.classList.add("scale-95");
+      
+      if (lightboxCaption) {
+        lightboxCaption.classList.remove("scale-100", "opacity-100");
+        lightboxCaption.classList.add("scale-95", "opacity-0");
+      }
+      
       setTimeout(() => {
         lightbox.classList.add("hidden");
         lightbox.classList.remove("flex");

@@ -149,3 +149,19 @@ body {
     transform: translateY(-85%);
   }
 }
+
+/* Custom Scrollbar for Letter Modal */
+#letter-content-area::-webkit-scrollbar {
+  width: 6px;
+}
+#letter-content-area::-webkit-scrollbar-track {
+  background: transparent;
+}
+#letter-content-area::-webkit-scrollbar-thumb {
+  background-color: rgba(217, 79, 112, 0.3); /* Match border color */
+  border-radius: 10px;
+}
+#letter-content-area {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(217, 79, 112, 0.3) transparent;
+}

@@ -8,7 +8,7 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,500&family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,500;1,500&family=Caveat:wght@500;600&family=Outfit:wght@400;500&display=swap" rel="stylesheet">
   
   <!-- Tailwind CSS via CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -20,6 +20,9 @@
             inter: ['Inter', 'sans-serif'],
             heading: ['Cormorant Garamond', 'serif'],
             caption: ['Inter', 'sans-serif'],
+            playfair: ['Playfair Display', 'serif'],
+            caveat: ['Caveat', 'cursive'],
+            outfit: ['Outfit', 'sans-serif'],
           }
         }
       }
@@ -63,7 +66,7 @@
           </h1>
           <p class="font-caption text-shadow-caption mt-4 hero-caption" style="font-size: clamp(12px, 1.2vw, 15px); color: #F2C2D4;">
             1 year, countless memories, and still my favorite person.<br />
-            cieee masih betah sama manusia random satu ini
+            Cieee masih betah sama manusia random satu ini.
           </p>
         </div>
       </div>
@@ -72,11 +75,11 @@
 
       <div class="absolute z-10 text-right pr-6 md:pr-[9vw]" style="right: 0; bottom: 12vh; max-width: 400px;">
         <p class="font-heading text-white/95 text-shadow-hero italic text-lg md:text-2xl mb-3" style="color: #F2C2D4; white-space: nowrap;">
-          "eh… ternyata udah 1 tahun yaa?"
+          "Eh… ternyata udah 1 tahun yaa?"
         </p>
         <p class="font-caption text-white/80 text-shadow-caption text-xs md:text-sm leading-relaxed">
-          ternyata kita udah sejauh ini ya 🥺<br/>
-          perasaan baru kemarin aku salting<br/>gara-gara chat kamu 😠
+          Ternyata kita udah sejauh ini ya 🥺<br/>
+          Perasaan baru kemarin aku salting<br/>gara-gara chat kamu 😠
         </p>
       </div>
 
@@ -104,12 +107,12 @@
           <!-- Glow blob di belakang teks -->
           <div class="absolute inset-0 bg-[#D94F70]/5 rounded-2xl blur-xl -z-10"></div>
           
-          <h2 class="font-heading text-shadow-hero text-white" style="font-size: clamp(32px, 4vw, 48px); line-height: 1.1;">
-            aku masih inget banget...<br/>ternyata kita udah sejauh ini
+          <h2 class="font-playfair italic text-shadow-hero text-white" style="font-size: clamp(32px, 4vw, 48px); line-height: 1.1;">
+            Aku masih inget banget...<br/>Ternyata kita udah sejauh ini.
           </h2>
           <div class="divider-line mt-4 !bg-[#F2C2D4]/60 shadow-[0_0_10px_rgba(242,194,212,0.4)] divider-pulse"></div>
           <p class="font-caption text-shadow-caption mt-4 relative z-10" style="font-size: clamp(12px, 1.2vw, 15px); max-width: 44ch; color: #F2C2D4;">
-            banyak banget hal yang udah kita lewatin yaa<br/>
+            Banyak banget hal yang udah kita lewatin yaa,<br/>
             dari yang ketawa receh,<br/>
             ngambek ga jelas,<br/>
             sampe “terserah” yang ternyata ga terserah 😔☝️
@@ -138,20 +141,20 @@
       </div>
       <div class="scene-content flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12" style="max-width: 85vw; width: 100%;">
         <div class="flex-1">
-          <h2 class="font-heading text-shadow-hero text-white" style="font-size: clamp(32px, 4vw, 48px); line-height: 1.1;">
-            dan aku masih<br/>sesayang itu…
+          <h2 class="font-caveat text-shadow-hero text-white" style="font-size: clamp(48px, 6vw, 64px); line-height: 1.1;">
+            Dan aku masih<br/>sesayang itu…
           </h2>
           <div class="divider-line mt-4"></div>
           <p class="font-caption text-shadow-caption mt-4" style="font-size: clamp(12px, 1.2vw, 15px); max-width: 44ch; color: #F2C2D4;">
-            makasih yaa udah selalu ada buat aku 🌷<br/>
-            nemenin hari-hari aku<br/>
-            dengerin cerita random aku<br/>
+            Makasih yaa udah selalu ada buat aku 🌷<br/>
+            Nemenin hari-hari aku,<br/>
+            dengerin cerita random aku,<br/>
             dan sabar sama sifat aku yang kadang bikin pusing 😔
             <br/><br/>
-            kamu tuh rumah paling nyaman yang pernah aku punya 🫶
+            Kamu tuh rumah paling nyaman yang pernah aku punya 🫶
           </p>
           <div class="mt-6 text-[#F2C2D4]/80 italic text-sm font-medium animate-pulse">
-            tap fotonyaa 👀 ➔
+            Tap fotonya 👀 ➔
           </div>
         </div>
 
@@ -159,17 +162,17 @@
           <!-- Scattered Polaroids -->
           <div class="scattered-polaroid hover-wobble-1 absolute top-6 left-2 md:left-8 w-44 md:w-56 bg-white p-2 pb-10 rounded-sm shadow-[0_15px_35px_rgba(0,0,0,0.4)] cursor-pointer z-10" style="transform: rotate(-6deg);" onclick="showCaption(this)">
             <img src="Foto 1.jfif" class="w-full aspect-square object-cover" />
-            <span class="polaroid-caption absolute bottom-3 left-0 w-full text-center text-xs md:text-sm font-medium text-[#D94F70] opacity-0 transition-opacity duration-300 pointer-events-none">cantik banget ih</span>
+            <span class="polaroid-caption absolute bottom-3 left-0 w-full text-center text-xs md:text-sm font-medium text-[#D94F70] opacity-0 transition-opacity duration-300 pointer-events-none">Cantik banget ih</span>
           </div>
           
           <div class="scattered-polaroid hover-wobble-2 absolute top-12 right-2 md:right-8 w-48 md:w-60 bg-white p-2 pb-10 rounded-sm shadow-[0_15px_35px_rgba(0,0,0,0.4)] cursor-pointer z-20" style="transform: rotate(3deg);" onclick="showCaption(this)">
             <img src="Foto 1.jfif" class="w-full aspect-square object-cover" />
-            <span class="polaroid-caption absolute bottom-3 left-0 w-full text-center text-xs md:text-sm font-medium text-[#D94F70] opacity-0 transition-opacity duration-300 pointer-events-none">ini gemes bgt 😠</span>
+            <span class="polaroid-caption absolute bottom-3 left-0 w-full text-center text-xs md:text-sm font-medium text-[#D94F70] opacity-0 transition-opacity duration-300 pointer-events-none">Ini gemes bgt 😠</span>
           </div>
           
           <div class="scattered-polaroid hover-wobble-3 absolute bottom-0 left-1/4 md:left-[15%] w-48 md:w-64 bg-white p-2 pb-10 rounded-sm shadow-[0_15px_35px_rgba(0,0,0,0.5)] cursor-pointer z-30" style="transform: rotate(-2deg);" onclick="showCaption(this)">
             <img src="Foto 1.jfif" class="w-full aspect-square object-cover" />
-            <span class="polaroid-caption absolute bottom-3 left-0 w-full text-center text-xs md:text-sm font-medium text-[#D94F70] opacity-0 transition-opacity duration-300 pointer-events-none">aku suka senyum kamu disini</span>
+            <span class="polaroid-caption absolute bottom-3 left-0 w-full text-center text-xs md:text-sm font-medium text-[#D94F70] opacity-0 transition-opacity duration-300 pointer-events-none">Aku suka senyum kamu di sini</span>
           </div>
           
           <!-- Doodle SVGs -->
@@ -240,13 +243,13 @@
       </div>
       <div class="scene-content flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12" style="max-width: 85vw; width: 100%;">
         <div class="flex-1">
-          <h2 class="font-heading text-shadow-hero text-white" style="font-size: clamp(32px, 4vw, 48px); line-height: 1.1;">
-            i have something<br/>for you 💌
+          <h2 class="font-playfair text-shadow-hero text-white" style="font-size: clamp(32px, 4vw, 48px); line-height: 1.1;">
+            I have something<br/>for you 💌
           </h2>
           <div class="divider-line mt-4"></div>
           <p class="font-caption text-shadow-caption mt-4" style="font-size: clamp(12px, 1.2vw, 15px); max-width: 44ch; color: #F2C2D4;">
-            sebenernya aku mau ngomong banyak banget…<br/>
-            jadi aku tulis disini yaa 🫶
+            Sebenernya aku mau ngomong banyak banget…<br/>
+            jadi aku tulis di sini yaa 🫶
           </p>
         </div>
         
@@ -290,7 +293,7 @@
             
             <!-- Hover Tooltip -->
             <div class="hover-tooltip absolute -top-14 left-1/2 -translate-x-1/2 bg-white text-[#D94F70] text-sm md:text-base font-bold px-4 py-2 rounded-full shadow-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-50 pointer-events-none whitespace-nowrap group-hover:animate-bounce">
-              pencet dongg 😠
+              Pencet dongg 😠
             </div>
           </div>
         </div>
@@ -310,37 +313,37 @@
       </div>
       <div class="scene-content flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12" style="max-width: 85vw; width: 100%;">
         <div class="flex-1">
-          <h2 class="font-heading text-shadow-hero text-white" style="font-size: clamp(32px, 4vw, 48px); line-height: 1.1;">
-            special edition:<br/>kumpulan foto kamu ngambek 😭💗
+          <h2 class="font-outfit font-medium tracking-wide text-shadow-hero text-white" style="font-size: clamp(28px, 3.5vw, 42px); line-height: 1.2;">
+            Special Edition:<br/>Kumpulan Foto Kamu Ngambek 😭💗
           </h2>
           <div class="divider-line mt-4"></div>
           <p class="font-caption text-shadow-caption mt-4" style="font-size: clamp(12px, 1.2vw, 15px); max-width: 44ch; color: #F2C2D4;">
-            selamat anniversary sayangg 🫶<br/>
-            maaf ya kadang aku suka bikin kamu bete wkwkwk<br/>
-            tapi kadanga- kiding juga lucu banget kalo kamu ngambek 😔☝️
+            Selamat anniversary sayangg 🫶<br/>
+            Maaf ya kadang aku suka bikin kamu bete wkwkwk.<br/>
+            Tapi kadang-kadang juga lucu banget kalo kamu ngambek 😔☝️
           </p>
         </div>
         
         <div class="shrink-0 w-full md:w-1/2 max-w-[550px]">
           <div class="grid grid-cols-3 gap-3 md:gap-5">
             <!-- Baris 1 -->
-            <div class="polaroid-trigger bg-white p-1.5 pb-5 md:p-2 md:pb-7 rounded-sm shadow-xl transform -rotate-6 transition-transform hover:scale-110 hover:rotate-0 hover:z-20 cursor-pointer" data-caption="“ini abis aku bilang terserah”">
+            <div class="polaroid-trigger bg-white p-1.5 pb-5 md:p-2 md:pb-7 rounded-sm shadow-xl transform -rotate-6 transition-transform hover:scale-110 hover:rotate-0 hover:z-20 cursor-pointer" data-caption="“Ini abis aku bilang terserah”">
               <img src="Foto 1.jfif" class="w-full h-auto aspect-square object-cover" />
             </div>
-            <div class="polaroid-trigger bg-white p-1.5 pb-5 md:p-2 md:pb-7 rounded-sm shadow-xl transform rotate-0 z-10 scale-105 transition-transform hover:scale-110 hover:z-20 cursor-pointer" data-caption="“ini ngambek 3 jam gara-gara aku ketiduran 😭”">
+            <div class="polaroid-trigger bg-white p-1.5 pb-5 md:p-2 md:pb-7 rounded-sm shadow-xl transform rotate-0 z-10 scale-105 transition-transform hover:scale-110 hover:z-20 cursor-pointer" data-caption="“Ini ngambek 3 jam gara-gara aku ketiduran 😭”">
               <img src="Foto 1.jfif" class="w-full h-auto aspect-square object-cover" />
             </div>
-            <div class="polaroid-trigger bg-white p-1.5 pb-5 md:p-2 md:pb-7 rounded-sm shadow-xl transform rotate-6 transition-transform hover:scale-110 hover:rotate-0 hover:z-20 cursor-pointer" data-caption="“galak tapi cantik 😔”">
+            <div class="polaroid-trigger bg-white p-1.5 pb-5 md:p-2 md:pb-7 rounded-sm shadow-xl transform rotate-6 transition-transform hover:scale-110 hover:rotate-0 hover:z-20 cursor-pointer" data-caption="“Galak tapi cantik 😔”">
               <img src="Foto 1.jfif" class="w-full h-auto aspect-square object-cover" />
             </div>
             <!-- Baris 2 -->
-            <div class="polaroid-trigger bg-white p-1.5 pb-5 md:p-2 md:pb-7 rounded-sm shadow-xl transform -rotate-3 translate-x-2 transition-transform hover:scale-110 hover:rotate-0 hover:z-20 cursor-pointer" data-caption="“lagi mode senggol bacok 💀”">
+            <div class="polaroid-trigger bg-white p-1.5 pb-5 md:p-2 md:pb-7 rounded-sm shadow-xl transform -rotate-3 translate-x-2 transition-transform hover:scale-110 hover:rotate-0 hover:z-20 cursor-pointer" data-caption="“Lagi mode senggol bacok 💀”">
               <img src="Foto 1.jfif" class="w-full h-auto aspect-square object-cover" />
             </div>
-            <div class="polaroid-trigger bg-white p-1.5 pb-5 md:p-2 md:pb-7 rounded-sm shadow-xl transform rotate-1 -translate-y-2 transition-transform hover:scale-110 hover:rotate-0 hover:z-20 cursor-pointer" data-caption="“manyun mulu tapi gemes 😠”">
+            <div class="polaroid-trigger bg-white p-1.5 pb-5 md:p-2 md:pb-7 rounded-sm shadow-xl transform rotate-1 -translate-y-2 transition-transform hover:scale-110 hover:rotate-0 hover:z-20 cursor-pointer" data-caption="“Manyun mulu tapi gemes 😠”">
               <img src="Foto 1.jfif" class="w-full h-auto aspect-square object-cover" />
             </div>
-            <div class="polaroid-trigger bg-white p-1.5 pb-5 md:p-2 md:pb-7 rounded-sm shadow-xl transform rotate-3 -translate-x-2 transition-transform hover:scale-110 hover:rotate-0 hover:z-20 cursor-pointer" data-caption="“bete tapi tetep pesen gofood banyakan 🍕”">
+            <div class="polaroid-trigger bg-white p-1.5 pb-5 md:p-2 md:pb-7 rounded-sm shadow-xl transform rotate-3 -translate-x-2 transition-transform hover:scale-110 hover:rotate-0 hover:z-20 cursor-pointer" data-caption="“Bete tapi tetep pesen GoFood banyakan 🍕”">
               <img src="Foto 1.jfif" class="w-full h-auto aspect-square object-cover" />
             </div>
           </div>
@@ -371,7 +374,7 @@
     <button id="letter-close" class="absolute top-6 right-8 text-white text-4xl hover:text-gray-300 z-20 cursor-pointer">&times;</button>
     
     <div id="letter-modal-paper" class="relative w-[90vw] md:w-[600px] max-h-[85vh] bg-[#FFF9E6] p-5 md:p-8 rounded-sm shadow-2xl scale-95 transition-transform duration-500 flex flex-col overflow-hidden" style="background-image: radial-gradient(#F5E6DA 1px, transparent 1px); background-size: 20px 20px;">
-      <div class="w-full h-full border-2 border-dashed border-[#D94F70]/20 p-5 md:p-8 font-caption text-[#4A3B32] text-[13px] md:text-[15px] leading-8 md:leading-[2.2rem] whitespace-pre-wrap overflow-y-auto" id="letter-content-area"></div>
+      <div class="w-full h-full border-2 border-dashed border-[#D94F70]/20 p-5 md:p-8 font-caveat text-[#4A3B32] text-[18px] md:text-[22px] leading-relaxed md:leading-[2.5rem] whitespace-pre-wrap overflow-y-auto" id="letter-content-area"></div>
       <div class="mt-6 text-[#D94F70] text-sm md:text-base italic opacity-0 transition-opacity duration-1000 font-medium text-right mr-4" id="letter-signature">
         made with love by [nama lu]
       </div>

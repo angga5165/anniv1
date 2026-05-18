@@ -209,9 +209,12 @@
             </div>
             
             <!-- Envelope Flap (Top) -->
-            <div class="envelope-flap absolute top-0 left-0 w-full h-full bg-[#E5D5C5] origin-top transition-all duration-700 z-50 pointer-events-none drop-shadow-lg" style="clip-path: polygon(0 0, 100% 0, 50% 50%);">
+            <div class="envelope-flap absolute top-0 left-0 w-full h-full origin-top transition-all duration-700 z-50 pointer-events-none drop-shadow-lg">
+              <!-- The Triangle Shape -->
+              <div class="absolute inset-0 bg-[#E5D5C5]" style="clip-path: polygon(0 0, 100% 0, 50% 50%);"></div>
+              
               <!-- Wax Seal -->
-              <div class="absolute left-1/2 bottom-[46%] md:bottom-[44%] -translate-x-1/2 translate-y-1/2 w-14 h-14 bg-[#D94F70] rounded-full shadow-lg flex items-center justify-center text-white z-50 border-2 border-[#b53a56]">
+              <div class="absolute left-1/2 top-[50%] -translate-x-1/2 -translate-y-1/2 w-14 h-14 bg-[#D94F70] rounded-full shadow-lg flex items-center justify-center text-white z-50 border-2 border-[#b53a56]">
                 <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
               </div>
             </div>
@@ -293,21 +296,9 @@
   <div id="letter-modal" class="fixed inset-0 z-[110] bg-black/80 hidden flex-col items-center justify-center opacity-0 transition-opacity duration-500 backdrop-blur-sm">
     <button id="letter-close" class="absolute top-6 right-8 text-white text-4xl hover:text-gray-300 z-20 cursor-pointer">&times;</button>
     
-    <div id="letter-modal-paper" class="relative w-[90vw] md:w-[600px] max-h-[85vh] bg-[#FFF9E6] p-6 md:p-10 rounded-sm shadow-2xl scale-95 transition-transform duration-500 flex flex-col overflow-y-auto">
-      <div class="w-full h-full border border-dashed border-[#D94F70]/30 p-4 md:p-8 font-caption text-[#4A3B32] text-sm md:text-base leading-loose whitespace-pre-wrap" id="letter-content-area"></div>
-      <div class="mt-8 text-[#D94F70] text-sm italic opacity-0 transition-opacity duration-1000 font-medium text-right" id="letter-signature">
-        made with love by [nama lu]
-      </div>
-    </div>
-  </div>
-
-  <!-- Letter Modal -->
-  <div id="letter-modal" class="fixed inset-0 z-[110] bg-black/80 hidden flex-col items-center justify-center opacity-0 transition-opacity duration-500 backdrop-blur-sm">
-    <button id="letter-close" class="absolute top-6 right-8 text-white text-4xl hover:text-gray-300 z-20 cursor-pointer">&times;</button>
-    
-    <div id="letter-modal-paper" class="relative w-[90vw] md:w-[600px] max-h-[85vh] bg-[#FFF9E6] p-6 md:p-10 rounded-sm shadow-2xl scale-95 transition-transform duration-500 flex flex-col overflow-y-auto">
-      <div class="w-full h-full border border-dashed border-[#D94F70]/30 p-4 md:p-8 font-caption text-[#4A3B32] text-sm md:text-base leading-loose whitespace-pre-wrap" id="letter-content-area"></div>
-      <div class="mt-8 text-[#D94F70] text-sm italic opacity-0 transition-opacity duration-1000 font-medium text-right" id="letter-signature">
+    <div id="letter-modal-paper" class="relative w-[90vw] md:w-[600px] max-h-[85vh] bg-[#FFF9E6] p-5 md:p-8 rounded-sm shadow-2xl scale-95 transition-transform duration-500 flex flex-col overflow-hidden" style="background-image: radial-gradient(#F5E6DA 1px, transparent 1px); background-size: 20px 20px;">
+      <div class="w-full h-full border-2 border-dashed border-[#D94F70]/20 p-5 md:p-8 font-caption text-[#4A3B32] text-[13px] md:text-[15px] leading-8 md:leading-[2.2rem] whitespace-pre-wrap overflow-y-auto" id="letter-content-area"></div>
+      <div class="mt-6 text-[#D94F70] text-sm md:text-base italic opacity-0 transition-opacity duration-1000 font-medium text-right mr-4" id="letter-signature">
         made with love by [nama lu]
       </div>
     </div>

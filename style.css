@@ -1,4 +1,7 @@
-html { scroll-behavior: auto; }
+html {
+  scroll-behavior: auto;
+}
+
 body {
   background: #0B0D10;
   color: white;
@@ -20,23 +23,23 @@ body {
 }
 
 .text-shadow-hero {
-  text-shadow: 0 12px 40px rgba(0,0,0,0.55);
+  text-shadow: 0 12px 40px rgba(0, 0, 0, 0.55);
 }
 
 .text-shadow-caption {
-  text-shadow: 0 8px 24px rgba(0,0,0,0.45);
+  text-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
 }
 
 .vignette-left {
-  background: linear-gradient(90deg, rgba(11,13,16,0.78) 0%, rgba(11,13,16,0.0) 42%);
+  background: linear-gradient(90deg, rgba(11, 13, 16, 0.78) 0%, rgba(11, 13, 16, 0.0) 42%);
 }
 
 .vignette-right {
-  background: linear-gradient(270deg, rgba(11,13,16,0.68) 0%, rgba(11,13,16,0.0) 40%);
+  background: linear-gradient(270deg, rgba(11, 13, 16, 0.68) 0%, rgba(11, 13, 16, 0.0) 40%);
 }
 
 .vignette-bottom {
-  background: linear-gradient(0deg, rgba(11,13,16,0.65) 0%, rgba(11,13,16,0.0) 55%);
+  background: linear-gradient(0deg, rgba(11, 13, 16, 0.65) 0%, rgba(11, 13, 16, 0.0) 55%);
 }
 
 .scene-section {
@@ -75,7 +78,7 @@ body {
 .divider-line {
   width: 120px;
   height: 1px;
-  background: rgba(255,255,255,0.35);
+  background: rgba(255, 255, 255, 0.35);
   transform-origin: left center;
 }
 
@@ -84,8 +87,15 @@ body {
 }
 
 @keyframes heartPulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.08); }
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.08);
+  }
 }
 
 .divider-pulse {
@@ -93,8 +103,15 @@ body {
 }
 
 @keyframes dividerPulse {
-  0%, 100% { opacity: 0.25; }
-  50% { opacity: 0.45; }
+
+  0%,
+  100% {
+    opacity: 0.25;
+  }
+
+  50% {
+    opacity: 0.45;
+  }
 }
 
 .closing-pulse {
@@ -102,8 +119,15 @@ body {
 }
 
 @keyframes closingPulse {
-  0%, 100% { opacity: 0.8; }
-  50% { opacity: 1; }
+
+  0%,
+  100% {
+    opacity: 0.8;
+  }
+
+  50% {
+    opacity: 1;
+  }
 }
 
 /* Scattered Polaroids Hover Animation */
@@ -112,11 +136,25 @@ body {
 }
 
 @keyframes hoverWobble {
-  0% { transform: scale(1.1) rotate(-3deg); }
-  25% { transform: scale(1.1) rotate(3deg); }
-  50% { transform: scale(1.1) rotate(-3deg); }
-  75% { transform: scale(1.1) rotate(3deg); }
-  100% { transform: scale(1.1) rotate(-3deg); }
+  0% {
+    transform: scale(1.1) rotate(-3deg);
+  }
+
+  25% {
+    transform: scale(1.1) rotate(3deg);
+  }
+
+  50% {
+    transform: scale(1.1) rotate(-3deg);
+  }
+
+  75% {
+    transform: scale(1.1) rotate(3deg);
+  }
+
+  100% {
+    transform: scale(1.1) rotate(-3deg);
+  }
 }
 
 .scattered-polaroid:hover {
@@ -126,8 +164,13 @@ body {
 
 /* Interactive Envelope */
 @keyframes envelopeWobble {
-  0% { transform: rotate(-2deg); }
-  100% { transform: rotate(2deg); }
+  0% {
+    transform: rotate(-2deg);
+  }
+
+  100% {
+    transform: rotate(2deg);
+  }
 }
 
 #love-letter-envelope:not(.is-open):hover {
@@ -143,6 +186,7 @@ body {
   transform: translateY(-80%);
   height: 280px;
 }
+
 @media (min-width: 768px) {
   #love-letter-envelope.is-open .envelope-letter {
     height: 350px;
@@ -154,13 +198,17 @@ body {
 #letter-content-area::-webkit-scrollbar {
   width: 6px;
 }
+
 #letter-content-area::-webkit-scrollbar-track {
   background: transparent;
 }
+
 #letter-content-area::-webkit-scrollbar-thumb {
-  background-color: rgba(217, 79, 112, 0.3); /* Match border color */
+  background-color: rgba(217, 79, 112, 0.3);
+  /* Match border color */
   border-radius: 10px;
 }
+
 #letter-content-area {
   scrollbar-width: thin;
   scrollbar-color: rgba(217, 79, 112, 0.3) transparent;
@@ -185,7 +233,8 @@ body {
 }
 
 /* Film Perforations (Holes) */
-.film-strip-container::before, .film-strip-container::after {
+.film-strip-container::before,
+.film-strip-container::after {
   content: "";
   position: absolute;
   left: 0;
@@ -193,9 +242,11 @@ body {
   height: 12px;
   background-image: repeating-linear-gradient(90deg, transparent 0px, transparent 10px, #000 10px, #000 20px);
 }
+
 .film-strip-container::before {
   top: 4px;
 }
+
 .film-strip-container::after {
   bottom: 4px;
 }
@@ -214,16 +265,28 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: grayscale(40%) contrast(1.2) sepia(20%); /* Cinematic vintage look */
+  filter: grayscale(40%) contrast(1.2) sepia(20%);
+  /* Cinematic vintage look */
 }
 
 @keyframes scrollFilm {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); } 
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
 }
+
 @keyframes scrollFilmReverse {
-  0% { transform: translateX(-50%); }
-  100% { transform: translateX(0); } 
+  0% {
+    transform: translateX(-50%);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
 }
 
 /* === SCRAPBOOK BACKGROUND (SCENE B) === */
@@ -246,22 +309,24 @@ body {
   width: 70px;
   height: 28px;
   background-color: rgba(255, 255, 255, 0.4);
-  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   z-index: 50;
   backdrop-filter: blur(2px);
 }
 
-.hover-wobble-1::before { 
-  background-color: rgba(217, 79, 112, 0.4); 
-  transform: translateX(-50%) rotate(4deg); 
+.hover-wobble-1::before {
+  background-color: rgba(217, 79, 112, 0.4);
+  transform: translateX(-50%) rotate(4deg);
 }
-.hover-wobble-2::before { 
-  background-color: rgba(242, 194, 212, 0.5); 
-  transform: translateX(-50%) rotate(-5deg); 
+
+.hover-wobble-2::before {
+  background-color: rgba(242, 194, 212, 0.5);
+  transform: translateX(-50%) rotate(-5deg);
   width: 85px;
 }
-.hover-wobble-3::before { 
-  background-color: rgba(255, 255, 255, 0.4); 
-  transform: translateX(-40%) rotate(2deg); 
-  width: 75px; 
+
+.hover-wobble-3::before {
+  background-color: rgba(255, 255, 255, 0.4);
+  transform: translateX(-40%) rotate(2deg);
+  width: 75px;
 }

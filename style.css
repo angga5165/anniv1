@@ -265,3 +265,21 @@ body {
   transform: translateX(-40%) rotate(2deg); 
   width: 75px; 
 }
+
+/* === CINEMATIC SCENE A === */
+.bg-cinematic {
+  filter: blur(15px) brightness(0.3) saturate(0.8);
+  transform: scale(1.15); /* hides blurry edges */
+}
+.film-grain {
+  position: absolute;
+  inset: 0;
+  /* Soft, fast noise */
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PScwIDAgMjAwIDIwMCcgeG1sbnM9J2h0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnJz48ZmlsdGVyIGlkPSdub2lzZUZpbHRlcic+PGZlVHVyYnVsZW5jZSB0eXBlPSdmcmFjdGFsTm9pc2UnIGJhc2VGcmVxdWVuY3k9JzAuODUnIG51bU9jdGF2ZXM9JzMnIHN0aXRjaFRpbGVzPSdzdGl0Y2gnLz48L2ZpbHRlcj48cmVjdCB3aWR0aD0nMTAwJScgaGVpZ2h0PScxMDAlJyBmaWx0ZXI9J3VybCgjbm9pc2VGaWx0ZXIpJyBvcGFjaXR5PScwLjE1Jy8+PC9zdmc+");
+  mix-blend-mode: overlay;
+  pointer-events: none;
+  z-index: 2;
+}
+.cinema-glow {
+  box-shadow: 0 0 35px rgba(255, 255, 255, 0.15), 0 0 80px rgba(255, 255, 255, 0.08);
+}

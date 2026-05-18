@@ -225,7 +225,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const letterAudio = document.getElementById("letter-audio");
   
   if (envelope && letterModal && letterArea) {
-    const letterText = `haloo sayangg 🥺\n\nmakasih yaa udah bertahan sejauh ini sama aku.\naku tau aku belum jadi orang yang sempurna, kadang nyebelin, kadang bikin kamu kesel juga 😔\n\ntapi percaya yaa, aku selalu serius waktu sayang sama kamu.\n\nmakasih udah hadir dan bikin hari-hari aku jadi lebih rame, lebih hangat, dan lebih bahagia 💗\n\naku suka semua hal tentang kamu, bahkan hal-hal kecil yang mungkin kamu sendiri ga sadar.\n\nsemoga kita bisa terus bareng-bareng yaa,\nmasih ketawa receh, masih cerita random, masih saling usahain satu sama lain 🫶\n\nand for the last time…\n\nhappy 1st anniversary bububb 😠💞`;
+    const letterText = `Haloo sayangg 🥺\n\nMakasih yaa udah bertahan sejauh ini sama aku.\nAku tau aku belum jadi orang yang sempurna, kadang nyebelin, kadang bikin kamu kesel juga 😔\n\nTapi percaya yaa, aku selalu serius waktu sayang sama kamu.\n\nMakasih udah hadir dan bikin hari-hari aku jadi lebih rame, lebih hangat, dan lebih bahagia 💗\n\nAku suka semua hal tentang kamu, bahkan hal-hal kecil yang mungkin kamu sendiri ga sadar.\n\nSemoga kita bisa terus bareng-bareng yaa,\nmasih ketawa receh, masih cerita random, masih saling usahain satu sama lain 🫶\n\nAnd for the last time…\n\nHappy 1st anniversary bububb 😠💞`;
     
     let isOpened = false;
     let typeWriterInterval = null;

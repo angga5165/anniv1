@@ -183,23 +183,23 @@
         
         <div class="shrink-0 w-full md:w-1/2 relative h-[350px] md:h-[450px] flex items-center justify-center perspective-[1000px]">
           <!-- Interactive Envelope -->
-          <div id="love-letter-envelope" class="envelope-wrapper relative w-[280px] md:w-[340px] h-[180px] md:h-[220px] cursor-pointer group mt-16 transition-transform duration-300">
+          <div id="love-letter-envelope" class="envelope-wrapper relative w-[320px] md:w-[420px] h-[220px] md:h-[280px] cursor-pointer group mt-8 transition-transform duration-300">
             
             <!-- Envelope Back -->
-            <div class="absolute inset-0 bg-[#D4C3B3] rounded-sm z-10 shadow-lg"></div>
+            <div class="absolute inset-0 bg-[#D4C3B3] rounded-sm z-10 shadow-2xl overflow-hidden">
+               <!-- subtle stripes for airmail feel -->
+               <div class="absolute inset-0 opacity-[0.04] bg-[repeating-linear-gradient(45deg,transparent,transparent_10px,#000_10px,#000_20px)]"></div>
+            </div>
             
-            <!-- The Letter -->
-            <div class="envelope-letter absolute bottom-0 left-[2%] w-[96%] h-[90%] bg-[#FFF9E6] p-4 rounded-sm z-20 transition-all duration-1000 shadow-[0_-5px_15px_rgba(0,0,0,0.1)] flex flex-col items-center">
-               <div class="w-full h-full border border-dashed border-[#D94F70]/30 p-3 md:p-4 overflow-y-auto font-caption text-[#4A3B32] text-[11px] md:text-sm leading-relaxed" id="letter-content-area">
-                 <!-- Typed text will go here -->
-               </div>
-               <div class="mt-3 text-[#D94F70] text-[10px] md:text-xs italic opacity-0 transition-opacity duration-1000 font-medium" id="letter-signature">
-                 made with love by [nama lu]
+            <!-- The Letter (Visual Prop) -->
+            <div class="envelope-letter absolute bottom-0 left-[2%] w-[96%] h-[90%] bg-[#FFF9E6] p-4 rounded-sm z-20 transition-all duration-1000 shadow-[0_-5px_15px_rgba(0,0,0,0.1)] flex flex-col items-center justify-center">
+               <div class="w-full h-full border border-dashed border-[#D94F70]/30 flex items-center justify-center">
+                 <div class="text-[#D94F70] text-3xl md:text-5xl animate-pulse">💌</div>
                </div>
             </div>
             
             <!-- Envelope Front Pocket (Flaps) -->
-            <div class="envelope-front absolute inset-0 w-full h-full z-40 pointer-events-none">
+            <div class="envelope-front absolute inset-0 w-full h-full z-40 pointer-events-none drop-shadow-md">
               <!-- Left flap -->
               <div class="absolute inset-0 bg-[#EFE0D3] shadow-[2px_0_5px_rgba(0,0,0,0.05)]" style="clip-path: polygon(0 0, 50% 50%, 0 100%);"></div>
               <!-- Right flap -->
@@ -209,13 +209,15 @@
             </div>
             
             <!-- Envelope Flap (Top) -->
-            <div class="envelope-flap absolute top-0 left-0 w-full h-full bg-[#E5D5C5] origin-top transition-all duration-700 z-50 pointer-events-none" style="clip-path: polygon(0 0, 100% 0, 50% 50%);">
-              <!-- Fake shadow for the flap -->
-              <div class="absolute bottom-0 w-full h-[5px] bg-black/10 blur-sm"></div>
+            <div class="envelope-flap absolute top-0 left-0 w-full h-full bg-[#E5D5C5] origin-top transition-all duration-700 z-50 pointer-events-none drop-shadow-lg" style="clip-path: polygon(0 0, 100% 0, 50% 50%);">
+              <!-- Wax Seal -->
+              <div class="absolute left-1/2 bottom-[46%] md:bottom-[44%] -translate-x-1/2 translate-y-1/2 w-14 h-14 bg-[#D94F70] rounded-full shadow-lg flex items-center justify-center text-white z-50 border-2 border-[#b53a56]">
+                <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+              </div>
             </div>
             
             <!-- Hover Tooltip -->
-            <div class="hover-tooltip absolute -top-12 left-1/2 -translate-x-1/2 bg-white text-[#D94F70] text-xs font-bold px-3 py-1.5 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-50 pointer-events-none whitespace-nowrap group-hover:animate-bounce">
+            <div class="hover-tooltip absolute -top-14 left-1/2 -translate-x-1/2 bg-white text-[#D94F70] text-sm md:text-base font-bold px-4 py-2 rounded-full shadow-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-50 pointer-events-none whitespace-nowrap group-hover:animate-bounce">
               pencet dongg 😠
             </div>
           </div>
@@ -285,6 +287,30 @@
   <div id="lightbox" class="fixed inset-0 z-[100] bg-black/90 hidden flex-col items-center justify-center opacity-0 transition-opacity duration-300">
     <button id="lightbox-close" class="absolute top-6 right-8 text-white text-4xl hover:text-gray-300 z-10 cursor-pointer">&times;</button>
     <img id="lightbox-img" src="" class="max-w-[90vw] max-h-[85vh] object-contain rounded-md shadow-2xl scale-95 transition-transform duration-300" />
+  </div>
+
+  <!-- Letter Modal -->
+  <div id="letter-modal" class="fixed inset-0 z-[110] bg-black/80 hidden flex-col items-center justify-center opacity-0 transition-opacity duration-500 backdrop-blur-sm">
+    <button id="letter-close" class="absolute top-6 right-8 text-white text-4xl hover:text-gray-300 z-20 cursor-pointer">&times;</button>
+    
+    <div id="letter-modal-paper" class="relative w-[90vw] md:w-[600px] max-h-[85vh] bg-[#FFF9E6] p-6 md:p-10 rounded-sm shadow-2xl scale-95 transition-transform duration-500 flex flex-col overflow-y-auto">
+      <div class="w-full h-full border border-dashed border-[#D94F70]/30 p-4 md:p-8 font-caption text-[#4A3B32] text-sm md:text-base leading-loose whitespace-pre-wrap" id="letter-content-area"></div>
+      <div class="mt-8 text-[#D94F70] text-sm italic opacity-0 transition-opacity duration-1000 font-medium text-right" id="letter-signature">
+        made with love by [nama lu]
+      </div>
+    </div>
+  </div>
+
+  <!-- Letter Modal -->
+  <div id="letter-modal" class="fixed inset-0 z-[110] bg-black/80 hidden flex-col items-center justify-center opacity-0 transition-opacity duration-500 backdrop-blur-sm">
+    <button id="letter-close" class="absolute top-6 right-8 text-white text-4xl hover:text-gray-300 z-20 cursor-pointer">&times;</button>
+    
+    <div id="letter-modal-paper" class="relative w-[90vw] md:w-[600px] max-h-[85vh] bg-[#FFF9E6] p-6 md:p-10 rounded-sm shadow-2xl scale-95 transition-transform duration-500 flex flex-col overflow-y-auto">
+      <div class="w-full h-full border border-dashed border-[#D94F70]/30 p-4 md:p-8 font-caption text-[#4A3B32] text-sm md:text-base leading-loose whitespace-pre-wrap" id="letter-content-area"></div>
+      <div class="mt-8 text-[#D94F70] text-sm italic opacity-0 transition-opacity duration-1000 font-medium text-right" id="letter-signature">
+        made with love by [nama lu]
+      </div>
+    </div>
   </div>
 
   <!-- Audio Placeholder -->

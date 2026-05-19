@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (meta) loadTl.fromTo(meta, { opacity: 0, y: -12 }, { opacity: 1, y: 0, duration: 0.6, ease: "power2.out" }, 0.2);
     if (heart) loadTl.fromTo(heart, { opacity: 0, y: -12 }, { opacity: 1, y: 0, duration: 0.6, ease: "power2.out" }, 0.28);
     if (words.length) {
-      loadTl.fromTo(words,
+      loadTl.fromTo(words, 
         { opacity: 0, y: 40, rotate: -2 },
         { opacity: 1, y: 0, rotate: 0, duration: 0.9, stagger: 0.06, ease: "power3.out" },
         0.35
@@ -92,7 +92,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // === SCENE SECTIONS ===
   const scenes = ["scene-a", "scene-b", "scene-c", "scene-d"];
-
+  
   scenes.forEach((id) => {
     const section = document.getElementById(id);
     if (!section) return;
@@ -142,27 +142,18 @@ document.addEventListener("DOMContentLoaded", () => {
     const maxScroll = ScrollTrigger.maxScroll(window);
     if (!maxScroll || pinned.length === 0) return;
 
-    const pinnedRanges = pinned.map((st) => {
+    const snapPoints = pinned.map((st) => {
       const start = st.start / maxScroll;
       const end = (st.end || st.start) / maxScroll;
-      const center = start + (end - start) * 0.35;
-      return { start, end, center };
+      return start + (end - start) * 0.35;
     });
 
     ScrollTrigger.create({
       snap: {
-        snapTo: (value) => {
-          const inPinned = pinnedRanges.some((r) => value >= r.start - 0.02 && value <= r.end + 0.02);
-          if (!inPinned) return value;
-
-          return pinnedRanges.reduce(
-            (closest, r) => Math.abs(r.center - value) < Math.abs(closest - value) ? r.center : closest,
-            pinnedRanges[0] ? pinnedRanges[0].center : 0
-          );
-        },
-        duration: { min: 0.15, max: 0.35 },
+        snapTo: snapPoints,
+        duration: { min: 0.2, max: 0.4 },
         delay: 0,
-        ease: "power2.out"
+        ease: "power1.inOut"
       }
     });
   }, 500);
@@ -185,7 +176,7 @@ document.addEventListener("DOMContentLoaded", () => {
       lightbox.classList.remove("opacity-0");
       lightboxImg.classList.remove("scale-95");
       lightboxImg.classList.add("scale-100");
-
+      
       // Set specific caption
       if (lightboxCaption) {
         if (captionText) {
@@ -202,12 +193,12 @@ document.addEventListener("DOMContentLoaded", () => {
       lightbox.classList.add("opacity-0");
       lightboxImg.classList.remove("scale-100");
       lightboxImg.classList.add("scale-95");
-
+      
       if (lightboxCaption) {
         lightboxCaption.classList.remove("scale-100", "opacity-100");
         lightboxCaption.classList.add("scale-95", "opacity-0");
       }
-
+      
       setTimeout(() => {
         lightbox.classList.add("hidden");
         lightbox.classList.remove("flex");
@@ -231,7 +222,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // === SCATTERED POLAROID CAPTION (In-Frame) ===
-  window.showCaption = function (el) {
+  window.showCaption = function(el) {
     const caption = el.querySelector(".polaroid-caption");
     if (caption) {
       caption.classList.remove("opacity-0");
@@ -243,40 +234,40 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // === INTERACTIVE ENVELOPE ===
   const envelope = document.getElementById("love-letter-envelope");
-
+  
   // Modal elements
   const letterModal = document.getElementById("letter-modal");
   const letterModalPaper = document.getElementById("letter-modal-paper");
   const letterClose = document.getElementById("letter-close");
   const letterArea = document.getElementById("letter-content-area");
   const letterSig = document.getElementById("letter-signature");
-
+  
   const letterAudio = document.getElementById("letter-audio");
-
+  
   if (envelope && letterModal && letterArea) {
     const letterText = `Haloo sayangg 🥺\n\nMakasih yaa udah bertahan sejauh ini sama aku.\nAku tau aku belum jadi orang yang sempurna, kadang nyebelin, kadang bikin kamu kesel juga 😔\n\nTapi kamu masih tetep sabar dan tetep ada di sini.\nMakasih yaa udah jadi bagian dari hari-hari aku,\n\nAku suka semua hal tentang kamu, bahkan hal-hal kecil yang mungkin kamu sendiri ga sadar.\n\nSemoga kita bisa terus bareng-bareng yaa sayanggg,\nmasih ketawa receh, masih cerita random, masih saling usahain satu sama lain 😙\n\nHappy 1st anniversary sayangg 😠💞\n\nATAPUUUUUUUUUU❤️❤️❤️❤️❤️❤️`;
-
+    
     let isOpened = false;
     let typeWriterInterval = null;
-
+    
     const openLetterModal = () => {
       // Dapatkan posisi amplop untuk titik awal terbang
       const rect = envelope.getBoundingClientRect();
       const startX = rect.left + rect.width / 2 - window.innerWidth / 2;
       const startY = rect.top - window.innerHeight / 2 + 50; // offset sedikit ke atas
-
+      
       letterModal.classList.remove("hidden");
       letterModal.classList.add("flex");
       void letterModal.offsetWidth; // reflow
-
+      
       letterModal.classList.remove("opacity-0");
-
+      
       // Pastikan kelas dasar tidak mengganggu GSAP
       letterModalPaper.classList.remove("scale-95", "transition-transform", "duration-500");
       letterModalPaper.classList.add("scale-100");
-
+      
       // Animasi Terbang (FLIP) dari amplop ke tengah layar
-      gsap.fromTo(letterModalPaper,
+      gsap.fromTo(letterModalPaper, 
         {
           x: startX,
           y: startY,
@@ -294,12 +285,12 @@ document.addEventListener("DOMContentLoaded", () => {
           ease: "back.out(1.2)"
         }
       );
-
+      
       // Start typing animation
       let i = 0;
       letterArea.innerHTML = "";
-      if (letterSig) letterSig.classList.add("opacity-0");
-
+      if(letterSig) letterSig.classList.add("opacity-0");
+      
       clearInterval(typeWriterInterval);
       typeWriterInterval = setInterval(() => {
         if (i < letterText.length) {
@@ -311,7 +302,7 @@ document.addEventListener("DOMContentLoaded", () => {
           }
           // Only auto scroll if the user hasn't scrolled manually much
           if (letterModalPaper.scrollTop + letterModalPaper.clientHeight >= letterModalPaper.scrollHeight - 50) {
-            letterModalPaper.scrollTop = letterModalPaper.scrollHeight;
+             letterModalPaper.scrollTop = letterModalPaper.scrollHeight;
           }
           i++;
         } else {
@@ -323,39 +314,39 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const closeLetterModal = () => {
       letterModal.classList.add("opacity-0");
-
+      
       // Animate back slightly
       gsap.to(letterModalPaper, {
         scale: 0.95,
         opacity: 0,
         duration: 0.4
       });
-
+      
       setTimeout(() => {
         letterModal.classList.add("hidden");
         letterModal.classList.remove("flex");
         // Reset envelope state so it can be opened again
         envelope.classList.remove("is-open");
         isOpened = false;
-
+        
         // Kembalikan kelas transisi standar
         letterModalPaper.classList.add("transition-transform", "duration-500");
       }, 500);
     };
-
+    
     envelope.addEventListener("click", () => {
       if (isOpened) return;
       isOpened = true;
-
+      
       // Open envelope CSS trigger
       envelope.classList.add("is-open");
-
+      
       // Play Audio (if exists)
       if (letterAudio) {
         letterAudio.volume = 0.4;
         letterAudio.play().catch(e => console.log("Audio autoplay prevented"));
       }
-
+      
       // Confetti effect
       setTimeout(() => {
         if (typeof confetti === "function") {
@@ -368,13 +359,13 @@ document.addEventListener("DOMContentLoaded", () => {
           });
         }
       }, 400);
-
+      
       // Show modal after envelope opens
       setTimeout(() => {
         openLetterModal();
       }, 900);
     });
-
+    
     if (letterClose) {
       letterClose.addEventListener("click", closeLetterModal);
     }
@@ -383,26 +374,59 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // === EXTRA ANIMATIONS FOR SCENE A ===
-  const sceneA = document.getElementById("scene-a");
-  if (sceneA) {
-    const sceneATexts = sceneA.querySelectorAll(".scene-content h2, .scene-content p, .scene-content .divider-line");
+  // === EXTRA ANIMATIONS FOR ALL SCENES ===
+  const scenesExtra = [
+    { id: "scene-a", selector: ".scene-content h2, .scene-content p, .scene-content .divider-line", extraAnim: null },
+    { id: "scene-b", selector: ".scene-content h2, .scene-content p, .scene-content .divider-line, .mt-6", extraAnim: ".scattered-polaroid" },
+    { id: "scene-c", selector: ".scene-content h2, .scene-content p, .scene-content .divider-line", extraAnim: "#love-letter-envelope" },
+    { id: "scene-d", selector: ".scene-content h2, .scene-content p, .scene-content .divider-line, .mt-6", extraAnim: ".polaroid-trigger" }
+  ];
 
-    // Fade Up Stagger for Texts
-    gsap.fromTo(sceneATexts,
-      { y: 30, opacity: 0 },
-      {
-        y: 0,
-        opacity: 1,
-        duration: 1.2,
-        stagger: 0.25,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: sceneA,
-          start: "top 60%",
-          toggleActions: "play none none reverse"
+  scenesExtra.forEach(sceneInfo => {
+    const sceneEl = document.getElementById(sceneInfo.id);
+    if (!sceneEl) return;
+
+    // Animate texts (Fade up & Stagger)
+    const texts = sceneEl.querySelectorAll(sceneInfo.selector);
+    if (texts.length) {
+      gsap.fromTo(texts, 
+        { y: 40, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 1.2,
+          stagger: 0.2,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: sceneEl,
+            start: "top 65%",
+            toggleActions: "play none none reverse"
+          }
         }
+      );
+    }
+
+    // Animate extra interactive items (Pop in & Stagger)
+    if (sceneInfo.extraAnim) {
+      const extras = sceneEl.querySelectorAll(sceneInfo.extraAnim);
+      if (extras.length) {
+        gsap.fromTo(extras,
+          { scale: 0.8, opacity: 0, y: 30 },
+          {
+            scale: 1,
+            opacity: 1,
+            y: 0,
+            duration: 1.2,
+            stagger: 0.15,
+            ease: "back.out(1.2)",
+            scrollTrigger: {
+              trigger: sceneEl,
+              start: "top 60%",
+              toggleActions: "play none none reverse"
+            }
+          }
+        );
       }
-    );
-  }
+    }
+  });
 });

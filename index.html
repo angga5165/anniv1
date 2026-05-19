@@ -35,7 +35,20 @@
   <!-- Custom CSS -->
   <link rel="stylesheet" href="style.css" />
 </head>
-<body class="bg-[#0B0D10] text-white font-inter overflow-x-hidden" style="background: #0B0D10;">
+<body class="bg-[#0B0D10] text-white font-inter overflow-hidden" style="background: #0B0D10;">
+  
+  <!-- Welcome Overlay for Autoplay Music -->
+  <div id="welcome-overlay" class="fixed inset-0 z-[200] bg-[#0B0D10] flex flex-col items-center justify-center transition-opacity duration-1000">
+    <div class="text-center px-4">
+      <h1 class="font-heading text-4xl md:text-5xl text-white mb-4 animate-pulse">Hi, Sayangg ❤️</h1>
+      <p class="font-caption text-[#F2C2D4] mb-8 text-sm md:text-base">Ada sesuatu buat kamu...</p>
+      <button id="start-btn" class="px-8 py-3 bg-[#D94F70] text-white font-inter font-medium rounded-full hover:bg-[#b53a56] transition-colors shadow-[0_0_15px_rgba(217,79,112,0.6)] hover:shadow-[0_0_25px_rgba(217,79,112,0.8)] transform hover:scale-105 duration-300">
+        Buka Sekarang
+      </button>
+    </div>
+  </div>
+
+  <audio id="bg-music" src="Lagu.mp3" loop></audio>
   
   <main class="relative">
     

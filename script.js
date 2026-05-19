@@ -1,6 +1,34 @@
 gsap.registerPlugin(ScrollTrigger);
 
 document.addEventListener("DOMContentLoaded", () => {
+  // === WELCOME OVERLAY & AUDIO ===
+  const welcomeOverlay = document.getElementById("welcome-overlay");
+  const startBtn = document.getElementById("start-btn");
+  const bgMusic = document.getElementById("bg-music");
+
+  if (startBtn && welcomeOverlay) {
+    startBtn.addEventListener("click", () => {
+      if (bgMusic) {
+        bgMusic.volume = 0.5;
+        bgMusic.play().catch(e => console.log("Audio play failed", e));
+      }
+      welcomeOverlay.classList.add("opacity-0");
+      setTimeout(() => {
+        welcomeOverlay.style.display = "none";
+        document.body.classList.remove("overflow-hidden");
+        document.body.classList.add("overflow-x-hidden");
+        if (window.heroLoadTl) window.heroLoadTl.play();
+      }, 1000); // Wait for transition
+    });
+  } else {
+    // Fallback if no overlay
+    setTimeout(() => {
+      document.body.classList.remove("overflow-hidden");
+      document.body.classList.add("overflow-x-hidden");
+      if (window.heroLoadTl) window.heroLoadTl.play();
+    }, 100);
+  }
+
   // === HERO SECTION ===
   const heroSection = document.getElementById("hero");
   if (heroSection) {
@@ -14,7 +42,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const scrollHint = heroSection.querySelector(".hero-scroll-hint");
 
     // AUTO-PLAY ENTRANCE (on page load)
-    const loadTl = gsap.timeline({ delay: 0.2 });
+    const loadTl = gsap.timeline({ delay: 0.2, paused: true });
+    window.heroLoadTl = loadTl;
 
     if (bg) loadTl.fromTo(bg, { opacity: 0, scale: 1.06 }, { opacity: 1, scale: 1, duration: 1.0, ease: "power2.out" }, 0);
     if (overlay) loadTl.fromTo(overlay, { opacity: 0 }, { opacity: 1, duration: 0.6, ease: "power2.out" }, 0);
